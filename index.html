@@ -1,13 +1,17 @@
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Site - Connexion</title>
+    <title>Site ENSIIE</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="login-container">
+    <!-- Section de connexion -->
+    <div id="login-container" style="display: block;">
         <img src="logo_ensiiie.png" alt="Logo ENSIIE" class="logo-login">
         <h2>Connexion</h2>
         <form id="login-form">
@@ -20,32 +24,35 @@
         <p id="error-message" class="error-message">Identifiant ou mot de passe incorrect.</p>
     </div>
 
+    <!-- Contenu principal après connexion -->
     <div id="content" style="display: none;">
-        <header class="header">
-            <div class="logo">
+        <!-- Barre latérale -->
+        <div class="sidebar">
+            <div class="logo-sidebar">
                 <img src="logo_ensiiie.png" alt="Logo ENSIIE" class="logo-header">
-                ENSIIE
+                <span>ENSIIE</span>
             </div>
             <nav class="navbar">
                 <ul>
                     <li><a href="#">Mon compte</a></li>
                     <li><a href="#">Règlement</a></li>
                     <li><a href="#">Inscriptions pédagogiques</a></li>
-                    <li><a href="#" id="resultats">Résultats</a>
+                    <li>
+                        <a href="#" id="resultats">Résultats</a>
                         <ul class="submenu">
-                            <li><a href="#notes-annee-en-cours">Notes aux épreuves année en cours</a></li>
-                            <li><a href="#notes-annees-precedentes">Notes aux épreuves années précédentes</a></li>
+                            <li><a href="#notes-annee-en-cours">Notes année en cours</a></li>
+                            <li><a href="#notes-annees-precedentes">Notes années précédentes</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Listes de diffusion</a></li>
                     <li><a href="#">Mes bulletins</a></li>
                     <li class="logout"><a href="#" id="logout-button">Déconnexion</a></li>
-
                 </ul>
             </nav>
-        </header>
+        </div>
 
-        <main class="content">
+        <!-- Contenu principal -->
+        <div class="content">
             <section id="notes-annee-en-cours">
                 <h2>Notes aux épreuves année en cours</h2>
                 <div class="search-bar">
@@ -67,11 +74,11 @@
                         <tr>
                             <td>01/09/2024</td>
                             <td>FISE_COSE11_EVALG_2425</td>
-                            <td>Evaluation module de Communication / FISE / Groupe G / Semestre 1</td>
+                            <td>Evaluation module de Communication</td>
                             <td>16.60</td>
                             <td></td>
                             <td></td>
-                            <td>BOURARD Laurence, REY Marie-josé</td>
+                            <td>BOURARD Laurence</td>
                         </tr>
                         <tr>
                             <td>01/09/2024</td>
@@ -154,3 +161,9 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+                        
+ 
+      
+       
+    
