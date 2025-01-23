@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site - Connexion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="login-container">
+        <img src="logo_ensiiie.png" alt="Logo ENSIIE" class="logo-login">
+        <h2>Connexion</h2>
+        <form id="login-form">
+            <label for="username">Identifiant :</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required>
+            <button type="button" id="login-button">Se connecter</button>
+        </form>
+        <p id="error-message" class="error-message">Identifiant ou mot de passe incorrect.</p>
+    </div>
+
+    <div id="content" style="display: none;">
+        <header class="header">
+            <div class="logo">
+                <img src="logo_ensiiie.png" alt="Logo ENSIIE" class="logo-header">
+                ENSIIE
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#">Mon compte</a></li>
+                    <li><a href="#">Règlement</a></li>
+                    <li><a href="#">Inscriptions pédagogiques</a></li>
+                    <li><a href="#" id="resultats">Résultats</a>
+                        <ul class="submenu">
+                            <li><a href="#notes-annee-en-cours">Notes aux épreuves année en cours</a></li>
+                            <li><a href="#notes-annees-precedentes">Notes aux épreuves années précédentes</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Listes de diffusion</a></li>
+                    <li><a href="#">Mes bulletins</a></li>
+                    <li class="logout"><a href="#" id="logout-button">Déconnexion</a></li>
+
+                </ul>
+            </nav>
+        </header>
+
+        <main class="content">
+            <section id="notes-annee-en-cours">
+                <h2>Notes aux épreuves année en cours</h2>
+                <div class="search-bar">
+                    <input type="text" placeholder="Rechercher">
+                </div>
+                <table class="notes-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Code</th>
+                            <th>Libellé</th>
+                            <th>Note</th>
+                            <th>Motif d'absence</th>
+                            <th>Appréciation</th>
+                            <th>Intervenants</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01/09/2024</td>
+                            <td>FISE_COSE11_EVALG_2425</td>
+                            <td>Evaluation module de Communication / FISE / Groupe G / Semestre 1</td>
+                            <td>16.60</td>
+                            <td></td>
+                            <td></td>
+                            <td>BOURARD Laurence, REY Marie-josé</td>
+                        </tr>
+                        <tr>
+                            <td>01/09/2024</td>
+                            <td>FISE_LVID11_ESAV_2425</td>
+                            <td>Evaluation module de LV2 / FISE / Espagnol avancé / Semestre 1</td>
+                            <td>16.00</td>
+                            <td></td>
+                            <td></td>
+                            <td>GOMEZ NOGALES Pablo, BOURARD Laurence</td>
+                        </tr>
+                        <tr>
+                            <td>01/09/2024</td>
+                            <td>FISE_LVIU11_EVA11_2425</td>
+                            <td>Evaluation module d'Anglais / FISE / Groupe 1.1 / Semestre 1</td>
+                            <td>15.52</td>
+                            <td></td>
+                            <td></td>
+                            <td>BOURARD Laurence, OATES Janet</td>
+                        </tr>
+                        <tr>
+                            <td>07/01/2025</td>
+                            <td>FISE_S1_ANNU11_ANNU11_SES1_EXAM01_2425</td>
+                            <td>ANNU 11 Examen</td>
+                            <td>14.00</td>
+                            <td></td>
+                            <td></td>
+                            <td>TORRI Vincent</td>
+                        </tr>
+                        <tr>
+                            <td>01/09/2024</td>
+                            <td>FISE_S1_ECGE11_EEDD11_SES1_PROJ01_2425</td>
+                            <td>EEDD11 Projet</td>
+                            <td>16.50</td>
+                            <td></td>
+                            <td></td>
+                            <td>LIGOZAT Anne-laure</td>
+                        </tr>
+                        <tr>
+                            <td>01/09/2024</td>
+                            <td>FISE_S1_GROP11_GROP11_SES1_COCO01_2425</td>
+                            <td>GROP11 Contrôle continu</td>
+                            <td>7.50</td>
+                            <td></td>
+                            <td></td>
+                            <td>MERABET Massinissa</td>
+                        </tr>
+                        <tr>
+                            <td>01/09/2024</td>
+                            <td>FISE_S1_GROP11_GROP11_SES1_EXAM01_2425</td>
+                            <td>GROP11 Examen</td>
+                            <td>14.00</td>
+                            <td></td>
+                            <td></td>
+                            <td>MERABET Massinissa</td>
+                        </tr>
+                        <tr>
+                            <td>06/01/2025</td>
+                            <td>FISE_S1_OSSE11_OSSE11_SES1_EXAM01_2425</td>
+                            <td>OSSE11 Examen</td>
+                            <td>13.00</td>
+                            <td></td>
+                            <td>EX1: 2.68/4 , EX2: 1/2 , EX3: 1.25/7 , EX4: 0/9</td>
+                            <td>MOUILLERON Christophe</td>
+                        </tr>
+                        <tr>
+                            <td>01/09/2024</td>
+                            <td>FISE_S1_OSSE11_OSSE11_SES1_TPNO01_2425</td>
+                            <td>OSSE11 TP noté</td>
+                            <td>20.00</td>
+                            <td></td>
+                            <td>ex1: 6.4 / 7 | ex2: 3 / 3 | ex3: 4.62 / 5.5 | ex4: 5.5 / 8</td>
+                            <td>MOUILLERON Christophe</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
