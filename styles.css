@@ -71,6 +71,12 @@ body, html {
     height: 60px;
 }
 
+.logo-header {
+    height: 40px; /* Taille réduite pour qu’il soit visible */
+    margin-right: 10px; /* Espace entre le logo et le texte ENSIIE */
+}
+
+
 /* Sidebar */
 .sidebar {
     width: 240px;
