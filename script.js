@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Vous avez été déconnecté."); // Notification de déconnexion
 
         // Redirection vers la page de connexion
-        window.location.href = "lien.html"; // Remplacez "index.html" par l'URL de votre page de connexion
+        window.location.href = "index.html"; // Remplacez "index.html" par l'URL de votre page de connexion
     });
 });
 
