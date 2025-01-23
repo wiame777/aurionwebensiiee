@@ -1,17 +1,14 @@
 
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site ENSIIE</title>
+    <title>Mon Site - Connexion</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Section de connexion -->
-    <div id="login-container" style="display: block;">
+    <div id="login-container">
         <img src="logo_ensiiie.png" alt="Logo ENSIIE" class="logo-login">
         <h2>Connexion</h2>
         <form id="login-form">
@@ -24,35 +21,30 @@
         <p id="error-message" class="error-message">Identifiant ou mot de passe incorrect.</p>
     </div>
 
-    <!-- Contenu principal après connexion -->
     <div id="content" style="display: none;">
-        <!-- Barre latérale -->
-        <div class="sidebar">
-            <div class="logo-sidebar">
+        <header class="header">
+            <div class="logo">
                 <img src="logo_ensiiie.png" alt="Logo ENSIIE" class="logo-header">
-                <span>ENSIIE</span>
+                ENSIIE
             </div>
-            <nav class="navbar">
-                <ul>
-                    <li><a href="#">Mon compte</a></li>
-                    <li><a href="#">Règlement</a></li>
-                    <li><a href="#">Inscriptions pédagogiques</a></li>
-                    <li>
-                        <a href="#" id="resultats">Résultats</a>
-                        <ul class="submenu">
-                            <li><a href="#notes-annee-en-cours">Notes année en cours</a></li>
-                            <li><a href="#notes-annees-precedentes">Notes années précédentes</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Listes de diffusion</a></li>
-                    <li><a href="#">Mes bulletins</a></li>
-                    <li class="logout"><a href="#" id="logout-button">Déconnexion</a></li>
-                </ul>
-            </nav>
-        </div>
+        </header>
 
-        <!-- Contenu principal -->
-        <div class="content">
+        <aside class="sidebar">
+            <ul class="menu">
+                <li><a href="#">Mon compte</a></li>
+                <li>
+                    <a href="#">Résultats</a>
+                    <ul class="submenu">
+                        <li><a href="#notes-annee-en-cours">Notes aux épreuves année en cours</a></li>
+                        <li><a href="#notes-annees-precedentes">Notes aux épreuves années précédentes</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Mes bulletins</a></li>
+                <li class="logout"><a href="#" id="logout-button">Déconnexion</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
             <section id="notes-annee-en-cours">
                 <h2>Notes aux épreuves année en cours</h2>
                 <div class="search-bar">
@@ -71,7 +63,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                     <tr>
                             <td>01/09/2024</td>
                             <td>FISE_COSE11_EVALG_2425</td>
                             <td>Evaluation module de Communication</td>
@@ -162,6 +154,8 @@
 </body>
 </html>
 
+
+       
                         
  
       
