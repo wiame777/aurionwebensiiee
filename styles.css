@@ -68,14 +68,15 @@ body, html {
     padding: 10px 20px;
     display: flex;
     align-items: center;
-    height: 60px;
+    height: 80px; /* Augmenté pour plus d'espace pour le logo */
 }
 
 .logo-header {
-    height: 40px; /* Taille réduite pour qu’il soit visible */
+    max-height: 60px; /* S'assure que le logo ne dépasse pas du header */
+    width: auto; /* Maintient les proportions du logo */
     margin-right: 10px; /* Espace entre le logo et le texte ENSIIE */
+    object-fit: contain; /* Empêche le logo d’être coupé */
 }
-
 
 /* Sidebar */
 .sidebar {
@@ -83,7 +84,7 @@ body, html {
     background-color: #333; /* Noir */
     color: #fff;
     position: fixed;
-    top: 60px; /* Juste en dessous du header */
+    top: 80px; /* Ajusté pour correspondre à la nouvelle hauteur du header */
     bottom: 0;
     left: 0;
     overflow-y: auto;
@@ -148,7 +149,7 @@ body, html {
     margin-left: 240px; /* Décalage pour la barre latérale */
     padding: 20px;
     background-color: #f4f4f4;
-    min-height: calc(100vh - 60px); /* Hauteur écran moins le header */
+    min-height: calc(100vh - 80px); /* Hauteur écran moins le header */
 }
 
 /* Notes table */
@@ -167,3 +168,23 @@ body, html {
     color: white;
     text-align: left;
 }
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .header {
+        height: 60px; /* Réduit la hauteur du header sur mobile */
+    }
+
+    .logo-header {
+        max-height: 40px; /* Ajuste la taille du logo pour mobile */
+    }
+
+    .sidebar {
+        width: 200px; /* Réduit la largeur de la sidebar sur mobile */
+    }
+
+    .logo-container img {
+        max-height: 80px; /* Ajuste la taille maximale du logo dans la sidebar */
+    }
+}
+
