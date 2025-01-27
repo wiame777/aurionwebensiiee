@@ -31,6 +31,7 @@ loginButton.addEventListener("click", () => {
     }
 });
 
+// Gestion du clic sur le bouton de déconnexion
 document.addEventListener("DOMContentLoaded", () => {
     const logoutButton = document.getElementById("logout-button");
 
@@ -41,6 +42,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Redirection vers la page de connexion
         window.location.href = "index.html"; // Remplacez "index.html" par l'URL de votre page de connexion
+    });
+
+    // Gestion de l'affichage des notes
+    const notesLink = document.querySelector('a[href="#notes-annee-en-cours"]');
+    const notesSection = document.getElementById("notes-annee-en-cours");
+    const contentSections = document.querySelectorAll("main > section");
+
+    // Cache toutes les sections au chargement
+    contentSections.forEach(section => section.style.display = "none");
+
+    // Gestionnaire de clic pour afficher la section des notes
+    notesLink.addEventListener("click", (event) => {
+        event.preventDefault(); // Empêche le comportement par défaut du lien
+
+        // Cache toutes les sections
+        contentSections.forEach(section => section.style.display = "none");
+
+        // Affiche uniquement la section des notes
+        notesSection.style.display = "block";
     });
 });
 
