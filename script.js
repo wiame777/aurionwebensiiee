@@ -31,10 +31,18 @@ loginButton.addEventListener("click", () => {
     }
 });
 
-// Gestion du clic sur le bouton de déconnexion
 document.addEventListener("DOMContentLoaded", () => {
     const logoutButton = document.getElementById("logout-button");
+    const notesLink = document.querySelector('a[href="#notes-annee-en-cours"]');
+    const notesSection = document.getElementById("notes-annee-en-cours");
+    const accountLink = document.querySelector('.menu a[href="#"]'); // Lien "Mon compte"
+    const contentSections = document.querySelectorAll("main > section");
+    const mainContent = document.querySelector("main"); // Contenu principal
 
+    // Cache toutes les sections au chargement
+    contentSections.forEach(section => section.style.display = "none");
+
+    // Gestion du clic sur le bouton de déconnexion
     logoutButton.addEventListener("click", (e) => {
         e.preventDefault(); // Empêche le comportement par défaut du lien
         // Action de déconnexion ici
@@ -43,14 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // Redirection vers la page de connexion
         window.location.href = "index.html"; // Remplacez "index.html" par l'URL de votre page de connexion
     });
-
-    // Gestion de l'affichage des notes
-    const notesLink = document.querySelector('a[href="#notes-annee-en-cours"]');
-    const notesSection = document.getElementById("notes-annee-en-cours");
-    const contentSections = document.querySelectorAll("main > section");
-
-    // Cache toutes les sections au chargement
-    contentSections.forEach(section => section.style.display = "none");
 
     // Gestionnaire de clic pour afficher la section des notes
     notesLink.addEventListener("click", (event) => {
@@ -61,6 +61,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Affiche uniquement la section des notes
         notesSection.style.display = "block";
+    });
+
+    // Gestionnaire de clic pour "Mon compte"
+    accountLink.addEventListener("click", (event) => {
+        event.preventDefault(); // Empêche le comportement par défaut du lien
+
+        // Cache toutes les sections
+        contentSections.forEach(section => section.style.display = "none");
+
+        // Affiche un message "Accueil ENSIIE" dans le contenu principal
+        mainContent.innerHTML = `
+            <section>
+                <h2>Accueil ENSIIE</h2>
+                <p>Bienvenue sur votre espace étudiant.</p>
+            </section>
+        `;
     });
 });
 
