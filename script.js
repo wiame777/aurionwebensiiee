@@ -39,6 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const contentSections = document.querySelectorAll("main > section");
     const mainContent = document.querySelector("main"); // Contenu principal
 
+    // Sauvegarder le contenu HTML initial du main
+    const originalMainContent = mainContent.innerHTML;
+
     // Cache toutes les sections au chargement
     contentSections.forEach(section => section.style.display = "none");
 
@@ -56,11 +59,18 @@ document.addEventListener("DOMContentLoaded", () => {
     notesLink.addEventListener("click", (event) => {
         event.preventDefault(); // Empêche le comportement par défaut du lien
 
+        // Restaurer le contenu HTML initial
+        mainContent.innerHTML = originalMainContent;
+
+        // Récupérer à nouveau les références des éléments
+        const notesSectionUpdated = document.getElementById("notes-annee-en-cours");
+        const updatedSections = document.querySelectorAll("main > section");
+
         // Cache toutes les sections
-        contentSections.forEach(section => section.style.display = "none");
+        updatedSections.forEach(section => section.style.display = "none");
 
         // Affiche uniquement la section des notes
-        notesSection.style.display = "block";
+        notesSectionUpdated.style.display = "block";
     });
 
     // Gestionnaire de clic pour "Mon compte"
