@@ -36,6 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const notesLink = document.querySelector('a[href="#notes-annee-en-cours"]');
     const notesSection = document.getElementById("notes-annee-en-cours");
     const accountLink = document.querySelector('.menu a[href="#"]'); // Lien "Mon compte"
+    const absenceLink = document.querySelector('a[href="#absence"]');
+    const absenceSection = document.getElementById("absence");
     const contentSections = document.querySelectorAll("main > section");
     const mainContent = document.querySelector("main"); // Contenu principal
 
@@ -44,7 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Cache toutes les sections au chargement
     contentSections.forEach(section => section.style.display = "none");
-
+    // Gestion du clic sur "Absence"
+    absenceLink.addEventListener("click", (event) => {
+        event.preventDefault();
+        contentSections.forEach(section => section.style.display = "none");
+        absenceSection.style.display = "block";
+    });
     // Gestion du clic sur le bouton de déconnexion
     logoutButton.addEventListener("click", (e) => {
         e.preventDefault(); // Empêche le comportement par défaut du lien
