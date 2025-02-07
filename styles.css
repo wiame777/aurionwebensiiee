@@ -168,6 +168,12 @@ body, html {
     color: white;
     text-align: left;
 }
+#absence {
+    font-size: 18px;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+}
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
