@@ -1,11 +1,8 @@
-// Script pour gérer la connexion et l'affichage des notes
-
 // Identifiants valides
 const validUsername = "wiame.mohafidi";
 const validPassword = "MOHA_ahmed3";
 
 // Éléments du DOM
-const loginForm = document.getElementById("login-form");
 const loginButton = document.getElementById("login-button");
 const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
@@ -35,65 +32,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const logoutButton = document.getElementById("logout-button");
     const notesLink = document.querySelector('a[href="#notes-annee-en-cours"]');
     const notesSection = document.getElementById("notes-annee-en-cours");
-    const accountLink = document.querySelector('.menu a[href="#"]'); // Lien "Mon compte"
     const absenceLink = document.querySelector('a[href="#absence"]');
     const absenceSection = document.getElementById("absence");
     const contentSections = document.querySelectorAll("main > section");
-    const mainContent = document.querySelector("main"); // Contenu principal
-
-    // Sauvegarder le contenu HTML initial du main
-    const originalMainContent = mainContent.innerHTML;
 
     // Cache toutes les sections au chargement
     contentSections.forEach(section => section.style.display = "none");
+
     // Gestion du clic sur "Absence"
     absenceLink.addEventListener("click", (event) => {
         event.preventDefault();
         contentSections.forEach(section => section.style.display = "none");
         absenceSection.style.display = "block";
     });
-    // Gestion du clic sur le bouton de déconnexion
-    logoutButton.addEventListener("click", (e) => {
-        e.preventDefault(); // Empêche le comportement par défaut du lien
-        // Action de déconnexion ici
-        alert("Vous avez été déconnecté."); // Notification de déconnexion
 
-        // Redirection vers la page de connexion
-        window.location.href = "index.html"; // Remplacez "index.html" par l'URL de votre page de connexion
-    });
-
-    // Gestionnaire de clic pour afficher la section des notes
+    // Gestion du clic sur "Notes aux épreuves année en cours"
     notesLink.addEventListener("click", (event) => {
-        event.preventDefault(); // Empêche le comportement par défaut du lien
-
-        // Restaurer le contenu HTML initial
-        mainContent.innerHTML = originalMainContent;
-
-        // Récupérer à nouveau les références des éléments
-        const notesSectionUpdated = document.getElementById("notes-annee-en-cours");
-        const updatedSections = document.querySelectorAll("main > section");
-
-        // Cache toutes les sections
-        updatedSections.forEach(section => section.style.display = "none");
-
-        // Affiche uniquement la section des notes
-        notesSectionUpdated.style.display = "block";
+        event.preventDefault();
+        contentSections.forEach(section => section.style.display = "none");
+        notesSection.style.display = "block";
     });
 
-    // Gestionnaire de clic pour "Mon compte"
-    accountLink.addEventListener("click", (event) => {
-        event.preventDefault(); // Empêche le comportement par défaut du lien
-
-        // Cache toutes les sections
-        contentSections.forEach(section => section.style.display = "none");
-
-        // Affiche un message "Accueil ENSIIE" dans le contenu principal
-        mainContent.innerHTML = `
-            <section>
-                <h2>Accueil ENSIIE</h2>
-                <p>Bienvenue sur votre espace étudiant.</p>
-            </section>
-        `;
+    // Gestion du clic sur "Déconnexion"
+    logoutButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        alert("Vous avez été déconnecté.");
+        location.reload(); // Recharge la page pour revenir à l'écran de connexion
     });
 });
+
 
