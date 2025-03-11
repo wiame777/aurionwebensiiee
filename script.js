@@ -28,8 +28,10 @@ loginButton.addEventListener("click", () => {
 
 // Gestion des menus et affichage des sections
 document.getElementById("mon-compte-button").addEventListener("click", function() {
+    // Cacher toutes les autres sections
     document.getElementById("notes-annee-en-cours").style.display = "none";
     document.getElementById("absence-section").style.display = "none";
+    // Afficher la section Mon Compte
     document.getElementById("mon-compte-section").style.display = "block";
 });
 
