@@ -32,8 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const logoutButton = document.getElementById("logout-button");
     const notesLink = document.querySelector('a[href="#notes-annee-en-cours"]');
     const notesSection = document.getElementById("notes-annee-en-cours");
-    const absenceLink = document.querySelector('a[href="#absence"]');
+    const absenceLink = document.getElementById("absence-button");
     const absenceSection = document.getElementById("absence-section");
+    const monCompteLink = document.getElementById("mon-compte-button");
+    const mainContent = document.querySelector("main.content");
+
     const contentSections = document.querySelectorAll("main > section");
 
     // Cache toutes les sections au chargement
@@ -53,32 +56,28 @@ document.addEventListener("DOMContentLoaded", () => {
         notesSection.style.display = "block";
     });
 
-    // Gestion du clic sur "Déconnexion"
-    logoutButton.addEventListener("click", (e) => {
-        e.preventDefault();
-        alert("Vous avez été déconnecté.");
-        location.reload(); // Recharge la page pour revenir à l'écran de connexion
-    });
-    document.addEventListener("DOMContentLoaded", () => {
-    const monCompteLink = document.querySelector('.menu li a[href="#"]'); // Lien "Mon compte"
-    const mainContent = document.querySelector("main.content");
-
+    // Gestion du clic sur "Mon compte"
     monCompteLink.addEventListener("click", (event) => {
         event.preventDefault();
-
+        
         // Cacher toutes les autres sections
-        document.getElementById("notes-annee-en-cours").style.display = "none";
-        document.getElementById("absence-section").style.display = "none";
+        contentSections.forEach(section => section.style.display = "none");
 
-        // Afficher la page Mon Compte avec le contenu souhaité
+        // Remplacer le contenu principal
         mainContent.innerHTML = `
             <h2>Accueil ENSIIE</h2>
             <p>Bienvenue sur votre espace étudiant.</p>
             <h3>Bulletin</h3>
         `;
     });
+
+    // Gestion du clic sur "Déconnexion"
+    logoutButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        alert("Vous avez été déconnecté.");
+        location.reload(); // Recharge la page pour revenir à l'écran de connexion
+    });
 });
 
-});
 
 
