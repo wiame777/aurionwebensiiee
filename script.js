@@ -16,66 +16,41 @@ loginButton.addEventListener("click", () => {
     const password = passwordInput.value;
 
     if (username === validUsername && password === validPassword) {
-        // Authentification réussie
         loginContainer.style.display = "none";
         content.style.display = "block";
     } else {
-        // Afficher un message d'erreur
         errorMessage.style.display = "block";
         setTimeout(() => {
             errorMessage.style.display = "none";
-        }, 3000); // Cache le message d'erreur après 3 secondes
+        }, 3000);
     }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const logoutButton = document.getElementById("logout-button");
-    const notesLink = document.querySelector('a[href="#notes-annee-en-cours"]');
-    const notesSection = document.getElementById("notes-annee-en-cours");
-    const absenceLink = document.querySelector('a[href="#absence"]');
-    const absenceSection = document.getElementById("absence-section");
-    const monCompteLink = document.querySelector('a[href="#mon-compte"]');
-    const monCompteSection = document.getElementById("mon-compte-section");
-    const contentSections = document.querySelectorAll("main > section");
-
-    // Cache toutes les sections sauf l'accueil au chargement
-    contentSections.forEach(section => section.style.display = "none");
-
-    // Gestion du clic sur "Absence"
-    absenceLink.addEventListener("click", (event) => {
-        event.preventDefault();
-        contentSections.forEach(section => section.style.display = "none");
-        absenceSection.style.display = "block";
-    });
-
-    // Gestion du clic sur "Notes aux épreuves année en cours"
-    notesLink.addEventListener("click", (event) => {
-        event.preventDefault();
-        contentSections.forEach(section => section.style.display = "none");
-        notesSection.style.display = "block";
-    });
-
-    // Gestion du clic sur "Mon compte"
-    monCompteLink.addEventListener("click", (event) => {
-        event.preventDefault();
-        contentSections.forEach(section => section.style.display = "none");
-        monCompteSection.style.display = "block";
-        
-        // Ajout du contenu dans la section "Mon compte"
-        monCompteSection.innerHTML = `
-            <h2>Accueil ENSIIE</h2>
-            <p>Bienvenue sur votre espace étudiant.</p>
-            <h3>Bulletin</h3>
-        `;
-    });
-
-    // Gestion du clic sur "Déconnexion"
-    logoutButton.addEventListener("click", (e) => {
-        e.preventDefault();
-        alert("Vous avez été déconnecté.");
-        location.reload(); // Recharge la page pour revenir à l'écran de connexion
-    });
+// Gestion des menus et affichage des sections
+document.getElementById("mon-compte-button").addEventListener("click", function() {
+    document.getElementById("notes-annee-en-cours").style.display = "none";
+    document.getElementById("absence-section").style.display = "none";
+    document.getElementById("mon-compte-section").style.display = "block";
 });
+
+document.getElementById("absence-button").addEventListener("click", function() {
+    document.getElementById("mon-compte-section").style.display = "none";
+    document.getElementById("notes-annee-en-cours").style.display = "none";
+    document.getElementById("absence-section").style.display = "block";
+});
+
+document.getElementById("resultats-button").addEventListener("click", function() {
+    document.getElementById("mon-compte-section").style.display = "none";
+    document.getElementById("absence-section").style.display = "none";
+    document.getElementById("notes-annee-en-cours").style.display = "block";
+});
+
+// Gestion du bouton de déconnexion
+document.getElementById("logout-button").addEventListener("click", function() {
+    alert("Vous avez été déconnecté.");
+    location.reload();
+});
+
 
 
 
