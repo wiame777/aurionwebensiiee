@@ -17,7 +17,7 @@
             <input type="password" id="password" name="password" required>
             <button type="button" id="login-button">Se connecter</button>
         </form>
-        <p id="error-message" class="error-message">Identifiant ou mot de passe incorrect.</p>
+        <p id="error-message" class="error-message" style="display: none;">Identifiant ou mot de passe incorrect.</p>
     </div>
 
     <div id="content" style="display: none;">
@@ -63,17 +63,6 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th>Date</th>
-                            <th>Code</th>
-                            <th>Libellé</th>
-                            <th>Note</th>
-                            <th>Motif d'absence</th>
-                            <th>Appréciation</th>
-                            <th>Intervenants</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                     <tr>
                             <td>01/09/2024</td>
                             <td>FISE_COSE11_EVALG_2425</td>
                             <td>Evaluation module de Communication</td>
@@ -83,90 +72,9 @@
                             <td>BOURARD Laurence</td>
                         </tr>
                         <tr>
-                            <td>01/09/2024</td>
-                            <td>FISE_LVID11_ESAV_2425</td>
-                            <td>Evaluation module de LV2 / FISE / Espagnol avancé / Semestre 1</td>
-                            <td>16.00</td>
-                            <td></td>
-                            <td></td>
-                            <td>GOMEZ NOGALES Pablo, BOURARD Laurence</td>
-                        </tr>
-                        <tr>
-                            <td>01/09/2024</td>
-                            <td>FISE_LVIU11_EVA11_2425</td>
-                            <td>Evaluation module d'Anglais / FISE / Groupe 1.1 / Semestre 1</td>
-                            <td>15.52</td>
-                            <td></td>
-                            <td></td>
-                            <td>BOURARD Laurence, OATES Janet</td>
-                        </tr>
-                        <tr>
-                            <td>07/01/2025</td>
-                            <td>FISE_S1_ANNU11_ANNU11_SES1_EXAM01_2425</td>
-                            <td>ANNU 11 Examen</td>
-                            <td>14.50</td>
-                            <td></td>
-                            <td></td>
-                            <td>TORRI Vincent</td>
-                        </tr>
-                        <tr>
-                            <td>01/09/2024</td>
-                            <td>FISE_S1_ECGE11_EEDD11_SES1_PROJ01_2425</td>
-                            <td>EEDD11 Projet</td>
-                            <td>16.50</td>
-                            <td></td>
-                            <td></td>
-                            <td>LIGOZAT Anne-laure</td>
-                        </tr>
-                        <tr>
-                            <td>01/09/2024</td>
-                            <td>FISE_S1_COCO01_2425</td>
-                            <td> LV2 / FISE / Espagnol avancé Contrôle continu</td>
-                            <td>7.50</td>
-                            <td></td>
-                            <td></td>
-                            <td>BOURARD Laurence</td>
-                        </tr>
-                        <tr>
-                            <td>01/09/2024</td>
-                            <td>FISE_S1_GROP11_GROP11_SES1_EXAM01_2425</td>
-                            <td>GROP11 Examen</td>
-                            <td>13.00</td>
-                            <td></td>
-                            <td></td>
-                            <td>MERABET Massinissa</td>
-                        </tr>
-                        <tr>
-                            <td>06/01/2025</td>
-                            <td>FISE_S1_OSSE11_OSSE11_SES1_EXAM01_2425</td>
-                            <td>OSSE11 Examen</td>
-                            <td>14.00</td>
-                            <td></td>
-                            <td></td>
-                            <td>MOUILLERON Christophe</td>
-                        </tr>
-                        <tr>
-                            <td>01/09/2024</td>
-                            <td>FISE_S1_OSSE11_OSSE11_SES1_TPNO01_2425</td>
-                            <td>OSSE11 TP noté</td>
-                            <td>20.00</td>
-                            <td></td>
-                            <td>ex1: 6.4 / 7 | ex2: 3 / 3 | ex3: 4.62 / 5.5 | ex4: 5.5 / 8</td>
-                            <td>MOUILLERON Christophe</td>
-                        </tr>
-                        <tr>
-                            <td>06/01/2025</td>
-                            <td>FISE_S1_CBDR11_CBDR11_SES1</td>
-                            <td> Base de données EXAM</td>
-                            <td>16.30</td>
-                            <td></td>
-                            <td></td>
-                            <td>SZAFRANSKI Marie</td>
-                        </tr>
-                         <tr>
                             <td>06/01/2025</td>
                             <td>FISE_S1_PROB</td>
-                            <td> Probabilité EXAM</td>
+                            <td>Probabilité EXAM</td>
                             <td>17.50</td>
                             <td></td>
                             <td></td>
@@ -185,12 +93,44 @@
     </div>
 
     <script>
+        const validUsername = "wiame.mohafidi";
+        const validPassword = "MOHA_ahmed3";
+
+        const loginButton = document.getElementById("login-button");
+        const usernameInput = document.getElementById("username");
+        const passwordInput = document.getElementById("password");
+        const errorMessage = document.getElementById("error-message");
+        const loginContainer = document.getElementById("login-container");
+        const content = document.getElementById("content");
+
+        loginButton.addEventListener("click", () => {
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value;
+
+            if (username === validUsername && password === validPassword) {
+                loginContainer.style.display = "none";
+                content.style.display = "block";
+            } else {
+                errorMessage.style.display = "block";
+                setTimeout(() => {
+                    errorMessage.style.display = "none";
+                }, 3000);
+            }
+        });
+
         document.getElementById("absence-button").addEventListener("click", function() {
+            document.getElementById("notes-annee-en-cours").style.display = "none";
             document.getElementById("absence-section").style.display = "block";
         });
-        
+
         document.getElementById("resultats-button").addEventListener("click", function() {
+            document.getElementById("absence-section").style.display = "none";
             document.getElementById("notes-annee-en-cours").style.display = "block";
+        });
+
+        document.getElementById("logout-button").addEventListener("click", function() {
+            alert("Vous avez été déconnecté.");
+            location.reload();
         });
     </script>
 </body>
