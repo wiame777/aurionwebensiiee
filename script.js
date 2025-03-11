@@ -59,6 +59,26 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Vous avez été déconnecté.");
         location.reload(); // Recharge la page pour revenir à l'écran de connexion
     });
+    document.addEventListener("DOMContentLoaded", () => {
+    const monCompteLink = document.querySelector('.menu li a[href="#"]'); // Lien "Mon compte"
+    const mainContent = document.querySelector("main.content");
+
+    monCompteLink.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        // Cacher toutes les autres sections
+        document.getElementById("notes-annee-en-cours").style.display = "none";
+        document.getElementById("absence-section").style.display = "none";
+
+        // Afficher la page Mon Compte avec le contenu souhaité
+        mainContent.innerHTML = `
+            <h2>Accueil ENSIIE</h2>
+            <p>Bienvenue sur votre espace étudiant.</p>
+            <h3>Bulletin</h3>
+        `;
+    });
+});
+
 });
 
 
