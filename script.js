@@ -32,14 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const logoutButton = document.getElementById("logout-button");
     const notesLink = document.querySelector('a[href="#notes-annee-en-cours"]');
     const notesSection = document.getElementById("notes-annee-en-cours");
-    const absenceLink = document.getElementById("absence-button");
+    const absenceLink = document.querySelector('a[href="#absence"]');
     const absenceSection = document.getElementById("absence-section");
-    const monCompteLink = document.getElementById("mon-compte-button");
-    const mainContent = document.querySelector("main.content");
-
+    const monCompteLink = document.querySelector('a[href="#mon-compte"]');
+    const monCompteSection = document.getElementById("mon-compte-section");
     const contentSections = document.querySelectorAll("main > section");
 
-    // Cache toutes les sections au chargement
+    // Cache toutes les sections sauf l'accueil au chargement
     contentSections.forEach(section => section.style.display = "none");
 
     // Gestion du clic sur "Absence"
@@ -59,12 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Gestion du clic sur "Mon compte"
     monCompteLink.addEventListener("click", (event) => {
         event.preventDefault();
-        
-        // Cacher toutes les autres sections
         contentSections.forEach(section => section.style.display = "none");
-
-        // Remplacer le contenu principal
-        mainContent.innerHTML = `
+        monCompteSection.style.display = "block";
+        
+        // Ajout du contenu dans la section "Mon compte"
+        monCompteSection.innerHTML = `
             <h2>Accueil ENSIIE</h2>
             <p>Bienvenue sur votre espace étudiant.</p>
             <h3>Bulletin</h3>
@@ -78,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
         location.reload(); // Recharge la page pour revenir à l'écran de connexion
     });
 });
+
 
 
 
