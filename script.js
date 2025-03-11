@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const notesLink = document.querySelector('a[href="#notes-annee-en-cours"]');
     const notesSection = document.getElementById("notes-annee-en-cours");
     const absenceLink = document.querySelector('a[href="#absence"]');
-    const absenceSection = document.getElementById("absence");
+    const absenceSection = document.getElementById("absence-section");
     const contentSections = document.querySelectorAll("main > section");
 
     // Cache toutes les sections au chargement
