@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> ENSIIE- Connexion</title>
+    <title>ENSIIE - Connexion</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -32,25 +32,37 @@
             <ul class="menu">
                 <li><a href="#">Mon compte</a></li>
                 <li>
-                    <a href="#">Résultats</a>
+                    <a href="#" id="resultats-button">Résultats</a>
                     <ul class="submenu">
                         <li><a href="#notes-annee-en-cours">Notes aux épreuves année en cours</a></li>
                         <li><a href="#notes-annees-precedentes">Notes aux épreuves années précédentes</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Mes bulletins</a></li>
+                <li><a href="#" id="absence-button">📌 Absences</a></li>
                 <li class="logout"><a href="#" id="logout-button">Déconnexion</a></li>
             </ul>
         </aside>
 
         <main class="content">
-            <section id="notes-annee-en-cours">
+            <section id="notes-annee-en-cours" style="display: none;">
                 <h2>Notes aux épreuves année en cours</h2>
                 <div class="search-bar">
                     <input type="text" placeholder="Rechercher">
                 </div>
                 <table class="notes-table">
                     <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Code</th>
+                            <th>Libellé</th>
+                            <th>Note</th>
+                            <th>Motif d'absence</th>
+                            <th>Appréciation</th>
+                            <th>Intervenants</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <tr>
                             <th>Date</th>
                             <th>Code</th>
@@ -164,12 +176,43 @@
                     </tbody>
                 </table>
             </section>
+
+            <section id="absence-section" style="display: none;">
+                <h2>Absences</h2>
+                <p><strong>Nombre total d'absences:</strong> 0</p>
+                <p><strong>Durée totale des absences:</strong> 0:0</p>
+            </section>
         </main>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        document.getElementById("absence-button").addEventListener("click", function() {
+            document.getElementById("absence-section").style.display = "block";
+        });
+        
+        document.getElementById("resultats-button").addEventListener("click", function() {
+            document.getElementById("notes-annee-en-cours").style.display = "block";
+        });
+    </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
